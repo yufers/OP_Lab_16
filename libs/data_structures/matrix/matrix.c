@@ -356,3 +356,23 @@ void replaceMinMAx(matrix m) {
     }
     swapRows(m, maxI, minI);
 }
+
+int getMax(int *a, int n) {
+    int max = INT_MIN;
+    for (int i = 0; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+    return max;
+}
+
+void sortRowsByMinElement(matrix m) {
+    int arr[m.nRows];
+
+    for (int i = 0; i < m.nRows; i++) {
+        int max = getMax(m.values[i], m.nCols);
+        arr[i] = max;
+    }
+    insertionSortBySumRows(arr, &m);
+}
