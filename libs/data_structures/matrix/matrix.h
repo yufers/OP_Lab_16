@@ -75,4 +75,11 @@ void sortRowsByMinElement(matrix m);
 int getMin(int *a, int n);
 void sortColsByMinElement(matrix m);
 
+matrix mulMatrices(matrix m1, matrix m2);
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
+bool isUnique(long long *a, int n);
+long long getSum1(int *a, int n);
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
 #endif //LAB_MATRIX_H

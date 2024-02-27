@@ -428,19 +428,19 @@ int main() {
     srand(time(NULL));
 //    test();
 
-    matrix m = createMatrixFromArray(
+    matrix m1 = createMatrixFromArray(
             (int[]) {
-                    3, 5, 2, 4, 3, 3,
-                    2, 5, 1, 8, 2, 7,
-                    6,1, 4, 4, 8, 3,
+                    1, 3, 0,
+                    3, 2, 6,
+                    0, 6, 5,
             },
-            3, 6
+            3, 3
     );
 
-    outputMatrix(m);
+    outputMatrix(m1);
     printf("-------------------\n");
-    sortColsByMinElement(m);
-    outputMatrix(m);
+    getSquareOfMatrixIfSymmetric(&m1);
+    outputMatrix(m1);
 
     return 0;
 }
