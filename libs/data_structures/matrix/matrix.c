@@ -98,13 +98,13 @@ void outputMatrixSum(matrix m, bool showSum) {
     for (int i = 0; i < m.nRows; i++) {
         int sum = 0;
         for (int j = 0; j < m.nCols; j++) {
-            //printf("%d\t", m.values[i][j]);
+            printf("%d\t", m.values[i][j]);
             sum += m.values[i][j];
         }
         if (showSum) {
-            //printf("=%d\n", sum);
+            printf("=%d\n", sum);
         } else {
-            //printf("\n");
+            printf("\n");
         }
     }
 }
@@ -332,4 +332,27 @@ matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t
             for (size_t j = 0; j < nCols; j++)
                 ms[k].values[i][j] = values[l++];
     return ms;
+}
+
+//=============================================================================================================
+
+void replaceMinMAx(matrix m) {
+    int max = INT_MIN;
+    int min = INT_MAX;
+    int maxI = 0;
+    int minI = 0;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (m.values[i][j] < min) {
+                min = m.values[i][j];
+                minI = i;
+            }
+            if (m.values[i][j] > max) {
+                max = m.values[i][j];
+                maxI = i;
+            }
+        }
+    }
+    swapRows(m, maxI, minI);
 }
