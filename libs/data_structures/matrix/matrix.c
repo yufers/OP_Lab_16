@@ -376,3 +376,30 @@ void sortRowsByMinElement(matrix m) {
     }
     insertionSortBySumRows(arr, &m);
 }
+
+int getMin(int *a, int n) {
+    int min = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    return min;
+}
+
+void sortColsByMinElement(matrix m) {
+    int arr[m.nCols];
+
+    for (int i = 0; i < m.nCols; i++) {
+        int col[m.nRows];
+
+        for (int j = 0; j < m.nRows; j++) {
+            int *row = m.values[j];
+            col[j] = row[i];
+        }
+
+        int sum = getMin(col, m.nRows);
+        arr[i] = sum;
+        selectionSortBySumCols(arr, &m);
+    }
+}

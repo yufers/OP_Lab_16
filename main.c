@@ -430,16 +430,16 @@ int main() {
 
     matrix m = createMatrixFromArray(
             (int[]) {
-                    9, 4, 5,
-                    1, 2, 3,
-                    6, 7, 2,
+                    3, 5, 2, 4, 3, 3,
+                    2, 5, 1, 8, 2, 7,
+                    6,1, 4, 4, 8, 3,
             },
-            3, 3
+            3, 6
     );
 
     outputMatrix(m);
     printf("-------------------\n");
-    sortRowsByMinElement(m);
+    sortColsByMinElement(m);
     outputMatrix(m);
 
     return 0;
