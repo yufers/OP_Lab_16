@@ -430,17 +430,23 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    5, 8, 9,
-                    4, 6, 2,
-                    3, 1, 2,
+                    2, 1,
+                    1, 1,
             },
-            3, 3
+            2, 2
     );
 
-    outputMatrix(m1);
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    2, 1,
+                    1, 1
+            },
+            2, 2
+    );
+
     printf("-------------------\n");
-    transposeIfMatrixHasNotEqualSumOfRows(m1);
-    outputMatrix(m1);
+    bool res = isMutuallyInverseMatrices(m1, m2);
+    printf("%d", res);
 
     return 0;
 }

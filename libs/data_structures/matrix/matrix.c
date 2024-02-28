@@ -4,13 +4,12 @@
 #include <string.h>
 #include "matrix.h"
 
-int compare( const void* a, const void* b)
-{
-    int int_a = * ( (int*) a );
-    int int_b = * ( (int*) b );
+int compare(const void *a, const void *b) {
+    int int_a = *((int *) a);
+    int int_b = *((int *) b);
 
-    if ( int_a == int_b ) return 0;
-    else if ( int_a < int_b ) return -1;
+    if (int_a == int_b) return 0;
+    else if (int_a < int_b) return -1;
     else return 1;
 }
 
@@ -456,7 +455,7 @@ bool isUnique(long long *a, int n) {
 
     int temp = 0;
     for (int i = 0; i < n; i++) {
-        if (a[i+1] == a[i]) {
+        if (a[i + 1] == a[i]) {
             return false;
         }
     }
@@ -477,5 +476,32 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
     } else {
         fprintf(stderr, "Not Unique");
         exit(1);
+    }
+}
+
+matrix createIdentityMatrix(size_t nRows, size_t nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (i == j) {
+                m.values[i][j] = 1;
+            } else {
+                m.values[i][j] = 0;
+            }
+        }
+    }
+    return m;
+}
+
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+    matrix m_identity = createIdentityMatrix(m2.nRows, m2.nCols);
+    matrix m_Inverse = mulMatrices(m2, m_identity);
+    bool res = areTwoMatricesEqual(&m1, &m_Inverse);
+
+    if (res) {
+        return true;
+    } else {
+        return false;
     }
 }

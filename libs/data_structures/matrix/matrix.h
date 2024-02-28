@@ -81,4 +81,7 @@ void getSquareOfMatrixIfSymmetric(matrix *m);
 bool isUnique(long long *a, int n);
 void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+matrix createIdentityMatrix(size_t nRows, size_t nCols);
+
 #endif //LAB_MATRIX_H
