@@ -430,23 +430,17 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    2, 1,
-                    1, 1,
+                    3, 8, 1, 8,
+                    5, 9, 13, 9,
+                    4, 10, 7, 5,
+                    2, 12, 22, 2,
             },
-            2, 2
-    );
-
-    matrix m2 = createMatrixFromArray(
-            (int[]) {
-                    2, 1,
-                    1, 1
-            },
-            2, 2
+            4, 4
     );
 
     printf("-------------------\n");
-    bool res = isMutuallyInverseMatrices(m1, m2);
-    printf("%d", res);
+    long long res = findSumOfMaxesOfPseudoDiagonal(m1);
+    printf("%lld", res);
 
     return 0;
 }

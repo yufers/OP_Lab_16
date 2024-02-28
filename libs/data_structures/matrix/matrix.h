@@ -84,4 +84,7 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 matrix createIdentityMatrix(size_t nRows, size_t nCols);
 
+int max(int a, int b);
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
 #endif //LAB_MATRIX_H

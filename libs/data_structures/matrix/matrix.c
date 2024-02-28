@@ -505,3 +505,41 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
         return false;
     }
 }
+
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int arr[m.nCols + m.nRows - 2];
+    int res;
+    int z = 0;
+    int sum = 0;
+
+    for (int k = 1; k < m.nCols; k++) {
+        res = INT_MIN;
+        for (int i = 0, j = k; i < m.nRows && j < m.nCols; i++, j++) {
+            res = max(res, m.values[i][j]);
+
+        }
+        arr[z++] = res;
+    }
+
+    for (int k = 1; k < m.nRows; k++) {
+        res = INT_MIN;
+        for (int i = k, j = 0; i < m.nRows && j < m.nCols; i++, j++) {
+            res = max(res, m.values[i][j]);
+        }
+        arr[z++] = res;
+    }
+
+    for (int x = 0; x < m.nCols + m.nRows - 2; x++) {
+        sum += arr[x];
+    }
+
+    return sum;
+}
