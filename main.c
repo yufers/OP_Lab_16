@@ -430,16 +430,16 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    1, 3, 0,
-                    3, 2, 6,
-                    0, 6, 5,
+                    5, 8, 9,
+                    4, 6, 2,
+                    3, 1, 2,
             },
             3, 3
     );
 
     outputMatrix(m1);
     printf("-------------------\n");
-    getSquareOfMatrixIfSymmetric(&m1);
+    transposeIfMatrixHasNotEqualSumOfRows(m1);
     outputMatrix(m1);
 
     return 0;

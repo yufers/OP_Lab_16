@@ -4,6 +4,16 @@
 #include <string.h>
 #include "matrix.h"
 
+int compare( const void* a, const void* b)
+{
+    int int_a = * ( (int*) a );
+    int int_b = * ( (int*) b );
+
+    if ( int_a == int_b ) return 0;
+    else if ( int_a < int_b ) return -1;
+    else return 1;
+}
+
 void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
@@ -141,8 +151,8 @@ void swapColumns(matrix m, int j1, int j2) {
     }
 }
 
-int getSum(int *a, int n) {
-    int sum = 0;
+long long getSum(int *a, int n) {
+    long long sum = 0;
     for (int i = 0; i < n; i++) {
         sum += a[i];
     }
@@ -439,4 +449,33 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
 
     freeMemMatrix(m);
     *m = m3;
+}
+
+bool isUnique(long long *a, int n) {
+    qsort(a, n, sizeof(long long), compare);
+
+    int temp = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i+1] == a[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long arr[m.nRows];
+
+    for (int i = 0; i < m.nRows; i++) {
+        long long sum = getSum(m.values[i], m.nCols);
+        arr[i] = sum;
+    }
+    bool res = isUnique(arr, m.nRows);
+
+    if (res) {
+        transposeSquareMatrix(&m);
+    } else {
+        fprintf(stderr, "Not Unique");
+        exit(1);
+    }
 }

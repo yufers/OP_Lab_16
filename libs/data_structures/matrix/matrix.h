@@ -38,7 +38,7 @@ void swapRows(matrix m, int i1, int i2);
 
 void swapColumns(matrix m, int j1, int j2);
 
-int getSum(int *a, int n);
+long long getSum(int *a, int n);
 int getSumCol(int **values, int nRows, int n);
 
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int));
@@ -79,7 +79,6 @@ matrix mulMatrices(matrix m1, matrix m2);
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
 bool isUnique(long long *a, int n);
-long long getSum1(int *a, int n);
 void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 #endif //LAB_MATRIX_H
