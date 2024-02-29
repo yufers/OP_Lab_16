@@ -430,19 +430,16 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                2 ,5, 5,
-                5, 5, 3,
-                5, 5, 0,
-                0, 5, 5,
-                2, 5, 5,
-                5, 2, 5,
-                5, 5, 2
+                8, 3, 4, 6,
+                1, 6, 1 ,2,
+                12, 1, 1, 8,
+                2, 1, 1, 0,
             },
-            7, 3
+            3, 4
     );
 
     printf("-------------------\n");
-    int res = countEqClassesByRowsSum(m1);
+    int res = getNSpecialElement(m1);
     printf("%d", res);
 
     return 0;
