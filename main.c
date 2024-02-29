@@ -430,17 +430,25 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    3, 8, 1, 8,
-                    5, 9, 13, 9,
-                    4, 10, 7, 5,
-                    2, 12, 22, 2,
+                    6, 8, 9, 2,
+                    7, 12, 3, 4,
+                    10, 11, 5, 1,
+            },
+            4, 4
+    );
+
+    matrix m2 = createMatrixFromArray(
+            (int[]) {
+                    1, 1, 1, 0,
+                    0, 1, 0, 0,
+                    0, 0, 0, 0,
             },
             4, 4
     );
 
     printf("-------------------\n");
-    long long res = findSumOfMaxesOfPseudoDiagonal(m1);
-    printf("%lld", res);
+    int res = getMinInArea(m1, m2);
+    printf("%d", res);
 
     return 0;
 }

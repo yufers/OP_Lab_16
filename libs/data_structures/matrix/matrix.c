@@ -540,6 +540,30 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     for (int x = 0; x < m.nCols + m.nRows - 2; x++) {
         sum += arr[x];
     }
-
     return sum;
+}
+
+int getMinInArea(matrix m, matrix m_area) {
+    int min = INT_MAX;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (m_area.values[i][j] == 1 && m.values[i][j] < min) {
+                min = m.values[i][j];
+            }
+        }
+    }
+    return min;
+}
+
+float getDistance(int *a, int n) {
+
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+
+}
+
+void sortByDistances(matrix m) {
+
 }
