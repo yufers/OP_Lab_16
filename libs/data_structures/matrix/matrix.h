@@ -93,6 +93,10 @@ float getDistance(int *a, int n);
 void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
 void sortByDistances(matrix m);
 
+int cmp_long_long(const void *pa, const void *pb);
+int countNUnique(long long *a, int n);
+int countEqClassesByRowsSum(matrix m);
+
 
 
 #endif //LAB_MATRIX_H

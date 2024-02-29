@@ -430,24 +430,19 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    6, 8, 9, 2,
-                    7, 12, 3, 4,
-                    10, 11, 5, 1,
+                2 ,5, 5,
+                5, 5, 3,
+                5, 5, 0,
+                0, 5, 5,
+                2, 5, 5,
+                5, 2, 5,
+                5, 5, 2
             },
-            4, 4
-    );
-
-    matrix m2 = createMatrixFromArray(
-            (int[]) {
-                    1, 1, 1, 0,
-                    0, 1, 0, 0,
-                    0, 0, 0, 0,
-            },
-            4, 4
+            7, 3
     );
 
     printf("-------------------\n");
-    int res = getMinInArea(m1, m2);
+    int res = countEqClassesByRowsSum(m1);
     printf("%d", res);
 
     return 0;
