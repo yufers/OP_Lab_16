@@ -430,17 +430,16 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                8, 3, 4, 6,
-                1, 6, 1 ,2,
-                12, 1, 1, 8,
-                2, 1, 1, 0,
+                8, 3, 4,
+                1, 6, 1,
+                12, 1, 1,
             },
-            3, 4
+            3, 3
     );
 
     printf("-------------------\n");
-    int res = getNSpecialElement(m1);
-    printf("%d", res);
+    sortByDistances(m1);
+    outputMatrix(m1);
 
     return 0;
 }

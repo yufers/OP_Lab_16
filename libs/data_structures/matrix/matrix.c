@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "matrix.h"
 
 int compare(const void *a, const void *b) {
@@ -31,9 +32,24 @@ void swap_matrix(int *a, int *b, matrix *m, int col1, int col2) {
     }
 }
 
-void insertionSortBySumRows(int *rows, matrix *m) {
+void insertionSortBySumRowsInt(int *rows, matrix *m) {
     for (size_t i = 1; i < m->nRows; i++) {
         int t = rows[i];
+        int *row = m->values[i];
+        int j = i;
+        while (j > 0 && rows[j - 1] > t) {
+            rows[j] = rows[j - 1];
+            m->values[j] = m->values[j - 1];
+            j--;
+        }
+        rows[j] = t;
+        m->values[j] = row;
+    }
+}
+
+void insertionSortBySumRowsFloat(float *rows, matrix *m) {
+    for (size_t i = 1; i < m->nRows; i++) {
+        float t = rows[i];
         int *row = m->values[i];
         int j = i;
         while (j > 0 && rows[j - 1] > t) {
@@ -174,7 +190,7 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
         int sum = criteria(m.values[i], m.nCols);
         arr[i] = sum;
     }
-    insertionSortBySumRows(arr, &m);
+    insertionSortBySumRowsInt(arr, &m);
 }
 
 void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
@@ -383,7 +399,7 @@ void sortRowsByMinElement(matrix m) {
         int max = getMax(m.values[i], m.nCols);
         arr[i] = max;
     }
-    insertionSortBySumRows(arr, &m);
+    insertionSortBySumRowsInt(arr, &m);
 }
 
 int getMin(int *a, int n) {
@@ -557,15 +573,26 @@ int getMinInArea(matrix m, matrix m_area) {
 }
 
 float getDistance(int *a, int n) {
+    int sum = 0;
 
+    for (int i = 0; i < n; i++) {
+        sum = sum + (a[i] * a[i]);
+    }
+    return (float) sqrt(sum);
 }
 
 void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    float arr[m.nRows];
 
+    for (int i = 0; i < m.nRows; i++) {
+        arr[i] = criteria(m.values[i], m.nRows);
+    }
+
+    insertionSortBySumRowsFloat(arr, &m);
 }
 
 void sortByDistances(matrix m) {
-
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
 int cmp_long_long(const void *pa, const void *pb) {
