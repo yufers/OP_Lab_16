@@ -651,10 +651,27 @@ int getNSpecialElement(matrix m) {
 }
 
 position getLeftMin(matrix m) {
+    int min = INT_MAX;
+    position res;
 
+    for (int i = 0 ; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (m.values[i][j] < min) {
+                min = m.values[i][j];
+                res.colIndex = j;
+                res.rowIndex = i;
+            }
+        }
+    }
+    return res;
 }
-void swapPenultimateRow(matrix m, int n) {
 
+void swapPenultimateRow(matrix m, int n) {
+    position res = getLeftMin(m);
+
+    for (int i = m.nRows - 1; i >= 0 ; i--) {
+        m.values[n-2][i] = m.values[i][res.colIndex];
+    }
 }
 
 bool isNonDescendingSorted(int *a, int n) {
