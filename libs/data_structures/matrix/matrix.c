@@ -649,3 +649,51 @@ int getNSpecialElement(matrix m) {
     }
     return counter;
 }
+
+position getLeftMin(matrix m) {
+
+}
+void swapPenultimateRow(matrix m, int n) {
+
+}
+
+bool isNonDescendingSorted(int *a, int n) {
+    int counter = 0;
+
+    for (int i = 0; i < n-1; i++) {
+        if (a[i] <= a[i+1]) {
+            counter++;
+        }
+    }
+    if (counter == n-1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    int counter = 0;
+
+    for (int i = 0; i < m.nRows; i++) {
+        if (isNonDescendingSorted(m.values[i], m.nCols)) {
+            counter++;
+        }
+    }
+    if (counter == m.nRows) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int counter = 0;
+
+    for (int i = 0; i < nMatrix; i++) {
+        if (hasAllNonDescendingRows(ms[i])) {
+            counter++;
+        }
+    }
+    return counter;
+}
