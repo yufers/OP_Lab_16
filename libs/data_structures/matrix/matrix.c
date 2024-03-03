@@ -714,3 +714,64 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
     }
     return counter;
 }
+
+int countValues(const int *a, int n, int value) {
+
+}
+
+int countZeroRows(matrix m) {
+
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+
+}
+
+//
+
+int min2(int a, int b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+int getNSpecialElement2(matrix m) {
+    int nSpecial = 0;
+    int currMax;
+
+    for (int i = 0; i < m.nRows; i++) {
+        currMax = INT_MIN;
+        for (int j = 0; j < m.nCols; j++) {
+            if (m.values[i][j] <= currMax) {
+                currMax = max(currMax, m.values[i][j]);
+                continue;
+            }
+
+            currMax = max(currMax, m.values[i][j]);
+
+            if ((j > 0) && m.values[i][j] <= m.values[i][j - 1]) {
+                continue;
+            }
+
+            if ((j+1 < m.nCols) && (m.values[i][j] >= m.values[i][j+1])) {
+                continue;
+            }
+
+            int min = INT_MAX;
+            for (int k = j + 1; k < m.nCols; k++) {
+                min = min2(min, m.values[i][k]);
+            }
+
+            if (m.values[i][j] >= min) {
+                continue;
+            }
+
+
+        nSpecial++;
+
+        }
+    }
+    return nSpecial;
+}

@@ -430,18 +430,18 @@ int main() {
 
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                8, 3, 2,
-                9, 1, 4,
-                7, 5, 9,
+                 2, 3, 5, 5, 4,
+                 6, 2, 3, 8, 12,
+                 12, 12, 2, 1, 2
             },
-            3, 3
+            3, 5
     );
 
 
     outputMatrix(m1);
     printf("-------------------\n");
-    swapPenultimateRow(m1, 3);
-    outputMatrix(m1);
+    int res = getNSpecialElement2(m1);
+    printf("%d", res);
 
     return 0;
 }
