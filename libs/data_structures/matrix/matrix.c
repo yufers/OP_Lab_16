@@ -772,7 +772,37 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
     }
 }
 
-//
+int getMatrixNorma(matrix m) {
+    int max = INT_MIN;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+
+            int val = abs(m.values[i][j]);
+            if (val > max) {
+                max = val;
+            }
+        }
+    }
+    return max;
+}
+
+void printMatrixWithMinNorma(matrix *ms, int nMatrix) {
+    int arr[nMatrix];
+
+    for (int i = 0; i < nMatrix; i++) {
+        arr[i] = getMatrixNorma(ms[i]);
+    }
+    insertionSortBySumMatrixInt(arr, ms, nMatrix);
+    int min = arr[0];
+
+    for (int j = 0; j < nMatrix; j++) {
+        if (arr[j] == min) {
+            outputMatrix(ms[j]);
+            printf("\n");
+        }
+    }
+}
 
 int min2(int a, int b) {
     if (a < b) {

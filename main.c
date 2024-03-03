@@ -437,15 +437,15 @@ int main() {
 //            3, 5
 //    );
 
-    int matrixes[] = {0, 1, 1, 0, 0, 0,
-                      1, 1, 2, 1, 1, 1,
-                      0, 0, 0, 0, 4, 7,
-                      0, 0, 0, 1, 0, 0,
-                      0, 1, 0, 2, 0, 3};
-    matrix *ms = createArrayOfMatrixFromArray(matrixes, 5, 3, 2);
+    int matrixes[] = {4, 3, 0, 0,
+                      0, 0, 8 ,1,
+                      7, 6, 5, 4,
+                      1, 2, 3, 4,
+                      0, 5, 3, 1};
+    matrix *ms = createArrayOfMatrixFromArray(matrixes, 5, 2, 2);
 
     printf("-------------------\n");
-    printMatrixWithMaxZeroRows(ms, 5);
+    printMatrixWithMinNorma(ms, 5);
 
     return 0;
 }

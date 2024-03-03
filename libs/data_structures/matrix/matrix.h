@@ -112,7 +112,8 @@ int countValues(const int *a, int n, int value);
 int countZeroRows(matrix m);
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
-//
+int getMatrixNorma(matrix m);
+void printMatrixWithMinNorma(matrix *ms, int nMatrix);
 
 int min2(int a, int b);
 int getNSpecialElement2(matrix m);
