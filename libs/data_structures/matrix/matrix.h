@@ -67,7 +67,7 @@ matrix *createArrayOfMatrixFromArray(const int *values,size_t nMatrices, size_t 
 
 //=============================================================================================================
 
-void replaceMinMAx(matrix m);
+void replaceMinMax(matrix m);
 
 int getMax(int *a, int n);
 void sortRowsByMinElement(matrix m);
@@ -89,11 +89,9 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 int getMinInArea(matrix m, matrix m_area);
 
-//
 float getDistance(int *a, int n);
 void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
 void sortByDistances(matrix m);
-//
 
 int cmp_long_long(const void *pa, const void *pb);
 int countNUnique(long long *a, int n);
