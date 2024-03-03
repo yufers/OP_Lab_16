@@ -118,4 +118,9 @@ void printMatrixWithMinNorma(matrix *ms, int nMatrix);
 int min2(int a, int b);
 int getNSpecialElement2(matrix m);
 
+//
+
+long long getScalarProductRowAndCol(matrix m, int i, int j);
+long long getSpecialScalarProduct(matrix m, int n);
+
 #endif //LAB_MATRIX_H

@@ -428,24 +428,25 @@ int main() {
     srand(time(NULL));
 //    test();
 
-//    matrix m1 = createMatrixFromArray(
-//            (int[]) {
-//                 2, 3, 5, 5, 4,
-//                 6, 2, 3, 8, 12,
-//                 12, 12, 2, 1, 2
-//            },
-//            3, 5
-//    );
+    matrix m1 = createMatrixFromArray(
+            (int[]) {
+                 1, 2, 3,
+                 4, 9, 6,
+                 7, 8, 5
+            },
+            3, 3
+    );
 
-    int matrixes[] = {4, 3, 0, 0,
-                      0, 0, 8 ,1,
-                      7, 6, 5, 4,
-                      1, 2, 3, 4,
-                      0, 5, 3, 1};
-    matrix *ms = createArrayOfMatrixFromArray(matrixes, 5, 2, 2);
+//    int matrixes[] = {4, 3, 0, 0,
+//                      0, 0, 8 ,1,
+//                      7, 6, 5, 4,
+//                      1, 2, 3, 4,
+//                      0, 5, 3, 1};
+//    matrix *ms = createArrayOfMatrixFromArray(matrixes, 5, 2, 2);
 
     printf("-------------------\n");
-    printMatrixWithMinNorma(ms, 5);
+    long long res = getSpecialScalarProduct(m1, 3);
+    printf("%lld", res);
 
     return 0;
 }

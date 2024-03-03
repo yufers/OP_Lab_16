@@ -850,3 +850,36 @@ int getNSpecialElement2(matrix m) {
     }
     return nSpecial;
 }
+
+//
+
+long long getScalarProductRowAndCol(matrix m, int i, int j) {
+    long long sum = 0;
+
+    for (int k = 0; k < m.nRows; k++) {
+        sum += m.values[i][k] * m.values[k][j];
+    }
+    return sum;
+}
+
+long long getSpecialScalarProduct(matrix m, int n) {
+    int rowNum = 0;
+    int colNum = 0;
+    int min = INT_MAX;
+    int max = INT_MIN;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (m.values[i][j] < min) {
+                min = m.values[i][j];
+                colNum = j;
+            }
+            if (m.values[i][j] > max) {
+                max = m.values[i][j];
+                rowNum = i;
+            }
+        }
+    }
+    long long res = getScalarProductRowAndCol(m, rowNum, colNum);
+    return res;
+}
