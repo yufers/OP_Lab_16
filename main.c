@@ -428,20 +428,24 @@ int main() {
     srand(time(NULL));
 //    test();
 
-    matrix m1 = createMatrixFromArray(
-            (int[]) {
-                 2, 3, 5, 5, 4,
-                 6, 2, 3, 8, 12,
-                 12, 12, 2, 1, 2
-            },
-            3, 5
-    );
+//    matrix m1 = createMatrixFromArray(
+//            (int[]) {
+//                 2, 3, 5, 5, 4,
+//                 6, 2, 3, 8, 12,
+//                 12, 12, 2, 1, 2
+//            },
+//            3, 5
+//    );
 
+    int matrixes[] = {0, 1, 1, 0, 0, 0,
+                      1, 1, 2, 1, 1, 1,
+                      0, 0, 0, 0, 4, 7,
+                      0, 0, 0, 1, 0, 0,
+                      0, 1, 0, 2, 0, 3};
+    matrix *ms = createArrayOfMatrixFromArray(matrixes, 5, 3, 2);
 
-    outputMatrix(m1);
     printf("-------------------\n");
-    int res = getNSpecialElement2(m1);
-    printf("%d", res);
+    printMatrixWithMaxZeroRows(ms, 5);
 
     return 0;
 }

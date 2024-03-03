@@ -42,8 +42,8 @@ long long getSum(int *a, int n);
 int getSumCol(int **values, int nRows, int n);
 
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int));
-
 void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int));
+void insertionSortBySumMatrixInt(int *sums, matrix *ms, int n);
 
 bool isSquareMatrix(matrix *m);
 
