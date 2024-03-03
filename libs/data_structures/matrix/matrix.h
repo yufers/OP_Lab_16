@@ -118,7 +118,10 @@ void printMatrixWithMinNorma(matrix *ms, int nMatrix);
 int min2(int a, int b);
 int getNSpecialElement2(matrix m);
 
-//
+double getScalarProduct(int *a, int *b, int n);
+double getVectorLength(int *a, int n);
+double getCosine(int *a, int *b, int n);
+int getVectorIndexWithMaxAngle(matrix m, int *b);
 
 long long getScalarProductRowAndCol(matrix m, int i, int j);
 long long getSpecialScalarProduct(matrix m, int n);

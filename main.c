@@ -431,11 +431,13 @@ int main() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
                  1, 2, 3,
-                 4, 9, 6,
-                 7, 8, 5
+                 4, 5, 6,
+                 7, 8, 9
             },
             3, 3
     );
+
+    int arr[3] = {3, 6, 9};
 
 //    int matrixes[] = {4, 3, 0, 0,
 //                      0, 0, 8 ,1,
@@ -445,8 +447,8 @@ int main() {
 //    matrix *ms = createArrayOfMatrixFromArray(matrixes, 5, 2, 2);
 
     printf("-------------------\n");
-    long long res = getSpecialScalarProduct(m1, 3);
-    printf("%lld", res);
+    int res = getVectorIndexWithMaxAngle(m1, arr);
+    printf("%d", res);
 
     return 0;
 }
